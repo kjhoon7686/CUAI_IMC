@@ -1,0 +1,28 @@
+---
+title: "w2_markdown_prac"
+author: "kjhoon"
+date: '2021 3 11 '
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## w2_markdown_prac
+
+```{r}
+library(dplyr)
+mpg<- ggplot2::mpg
+mpg<- as.data.frame(mpg)
+class(mpg)
+head(mpg)
+tail(mpg)
+summary(mpg)
+mpg %>% 
+  mutate(displ_gp=ifelse(displ<=4, 'small', 'large')) %>% 
+  group_by(displ_gp) %>% 
+  summarise(mean_hwy=mean(hwy))
+
+```
+
